@@ -24,7 +24,7 @@ import fr.cnam.nfe102.cashcalendar.modele.Produit;
 	    //@WebInitParam(name="chemin", value="/user/sedira/cashcalendar/images/")
 	})
 //@MultipartConfig(location="C:/PHP/images")
-@MultipartConfig(location="/user/sedira/cashcalendar/images")
+@MultipartConfig(location="/home/sedira/cashcalendar/images")
 public class Achat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
