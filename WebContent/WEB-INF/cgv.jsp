@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
     <head>
 		<!-- <link type="text/css" rel="stylesheet" href="<c:url value="/style/form.css"/>" /> -->
-		
 		<link type="text/css" rel="stylesheet" href="<c:url value="/style/bootstrap.min.css"/>">
 		<script type="text/javascript" src="<c:url value="/style/bootstrap.min.js"/>"></script>
 		<script type="text/javascript" src="<c:url value="/style/jquery.min.js"/>"></script>
