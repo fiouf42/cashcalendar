@@ -80,8 +80,9 @@ public class CalendrierController {
                 try {
 					verifTaille(part.getSize());
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					setErreur( ATT_ACCUEIL, e.getMessage() );
+					resultat = e.getMessage();
+					return produit;
 				}
                 
                 
@@ -99,8 +100,6 @@ public class CalendrierController {
 
                     /* Récupération du contenu du fichier */
                     contenuFichier = part.getInputStream();
-                    
-                    System.out.println("LAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" + part.getSize());
 
                 }
             } catch ( IllegalStateException e ) {

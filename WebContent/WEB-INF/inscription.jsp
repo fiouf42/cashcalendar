@@ -5,40 +5,38 @@
 <html>
     <head>
         <title>Inscription</title>
-		<link type="text/css" rel="stylesheet" href="webjars/bootstrap/3.3.6/css/bootstrap.min.css">
-		<script type="text/javascript" src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="webjars/jquery/2.2.0/js/jquery.min.js"></script>
+		<!-- <link type="text/css" rel="stylesheet" href="<c:url value="/style/form.css"/>" /> -->
+		
+		<link type="text/css" rel="stylesheet" href="<c:url value="/style/bootstrap.min.css"/>">
+		<script type="text/javascript" src="<c:url value="/style/bootstrap.min.js"/>"></script>
+		<script type="text/javascript" src="<c:url value="/style/jquery.min.js"/>"></script>
     </head>
     <body>
     <%@ include file="menu.jsp" %>
-        <form method="post" action="inscription">
-            <fieldset>
-                <legend>Inscription</legend>
-                <p>Vous pouvez vous inscrire via ce formulaire.</p>
-
-                <label for="email">Adresse email <span class="requis">*</span></label>
-                <input type="email" id="mail" name="mail" value="<c:out value="${utilisateur.mail}"/>" size="20" maxlength="60" />
-                <span class="erreur">${form.erreurs['mail']}</span>
-                <br />
-
-                <label for="motdepasse">Mot de passe <span class="requis">*</span></label>
-                <input type="password" id="motdepasse" name="motdepasse" value="" size="20" maxlength="20" />
-                <span class="erreur">${form.erreurs['motdepasse']}</span>
-                <br />
-
-                <label for="confirmation">Confirmation du mot de passe <span class="requis">*</span></label>
-                <input type="password" id="confirmation" name="confirmation" value="" size="20" maxlength="20" />
-                <span class="erreur">${form.erreurs['confirmation']}</span>
-                <br />
-
-                <input type="submit" value="Inscription" class="sansLabel" />
-                <br />
+				<div class="container">
+			      <form class="form-signin" method="post" action="inscription">
+			        <h2 class="form-signin-heading">Inscription</h2>
+			        
+			        <label for="inputEmail" class="sr-only">Adresse email</label>
+			        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="mail" required autofocus>
+			        <span class="erreur">${form.erreurs['mail']}</span>
+			        
+			        
+			        <label for="inputPassword" class="sr-only">Mot de passe</label>
+			        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="motdepasse" required>
+			        <span class="erreur">${form.erreurs['motdepasse']}</span>
+			        
+			        <label for="inputPassword" class="sr-only">Confirmation du mot de passe</label>
+			        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="confirmation" required>
+			        <span class="erreur">${form.erreurs['confirmation']}</span>
+			        
+			        <button class="btn btn-lg btn-primary btn-block" value="Inscription" type="submit">Inscription</button>
                 
-                <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
-                
-        		<p>Déjà membre ? connectez vous <a href="connexion" >ici</a></p>
-            </fieldset>
-        </form>
+	                <p class="${empty form.erreurs ? 'succes' : 'erreur'}">${form.resultat}</p>
+	                
+	        		<p>Déjà membre ? connectez vous <a href="connexion" >ici</a></p>
+			      </form>
+			    </div>
         <%@ include file="piedDePage.jsp" %>
     </body>
 </html>

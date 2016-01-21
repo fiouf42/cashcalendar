@@ -37,7 +37,7 @@
 				</excludes>
 			</resource>
 			<resource>
-				<directory>src/main/webapp</directory>
+				<directory>WebContent</directory>
 				<excludes>
 					<exclude>**/*.java</exclude>
 				</excludes>

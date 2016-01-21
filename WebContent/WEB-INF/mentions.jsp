@@ -4,9 +4,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-		<link type="text/css" rel="stylesheet" href="webjars/bootstrap/3.3.6/css/bootstrap.min.css">
-		<script type="text/javascript" src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="webjars/jquery/2.2.0/js/jquery.min.js"></script>
+		<!-- <link type="text/css" rel="stylesheet" href="<c:url value="/style/form.css"/>" /> -->
+		
+		<link type="text/css" rel="stylesheet" href="<c:url value="/style/bootstrap.min.css"/>">
+		<script type="text/javascript" src="<c:url value="/style/bootstrap.min.js"/>"></script>
+		<script type="text/javascript" src="<c:url value="/style/jquery.min.js"/>"></script>
 		<title>Mentions Légales</title>
 	</head>
 	<body>

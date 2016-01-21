@@ -1,7 +1,6 @@
 package fr.cnam.nfe102.cashcalendar.servlets;
 
 import java.io.IOException;
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -23,7 +22,7 @@ import fr.cnam.nfe102.cashcalendar.modele.Produit;
 @WebServlet( name="Achat", urlPatterns = {"/achat"}, initParams={
 	    @WebInitParam(name="chemin", value="/PHP/images/")
 	})
-@MultipartConfig(location="C:/PHP/images", fileSizeThreshold=1024*1024, maxFileSize=1024*1024, maxRequestSize=1024*1024*5)
+@MultipartConfig(location="C:/PHP/images")
 public class Achat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -79,11 +78,7 @@ public class Achat extends HttpServlet {
          * dans le web.xml
          */
 		
-		System.out.println("MON FICHIER " + request.getParameter("fichier"));
-		System.out.println("MON DICTON " + request.getParameter("dicton"));
-		
 		if (request.getParameter("validAchat") != null) {
-			System.out.println("on passe maintenant !!");
 	        String chemin = this.getServletConfig().getInitParameter( CHEMIN );
 	        session.setAttribute(ATT_DICTON, request.getParameter("dicton"));
 	        /* Préparation de l'objet formulaire */
