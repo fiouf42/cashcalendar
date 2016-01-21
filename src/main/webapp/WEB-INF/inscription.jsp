@@ -12,6 +12,7 @@
     </head>
     <body>
     <%@ include file="menu.jsp" %>
+    <br/><br/><br/>
     	<c:choose>
 		    <c:when test="${!empty sessionScope.sessionUtilisateur}">
 		    	<p>Vous êtes déjà connecté ! Déconnecté vous <a href="deconnexion">ici</a> !

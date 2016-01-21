@@ -12,6 +12,7 @@
     </head>
     <body>
     <%@ include file="menu.jsp" %>
+    <br/><br/><br/>
         <form action="<c:url value="/upload" />" method="post" enctype="multipart/form-data">
             <fieldset>
                 <legend>Envoi de fichier</legend>

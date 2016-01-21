@@ -12,6 +12,7 @@
     </head>
     <body>
     <%@ include file="menu.jsp" %>
+    <br/><br/><br/>
 	<p class="succes">On va acheter : ${nom} du calendrier ${idCalendrier}</p>
 		<c:choose>
 		<c:when test="${nom == 'image'}">
