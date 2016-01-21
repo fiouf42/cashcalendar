@@ -34,6 +34,7 @@ public class Accueil extends HttpServlet {
         /* Affichage de la page de Accueil */
         this.getServletContext().getRequestDispatcher( VUE ).forward( request, response );
     }
+    
 
     public void doPost( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException {
         this.getServletContext().getRequestDispatcher( VUE_ACHAT ).forward( request, response );
