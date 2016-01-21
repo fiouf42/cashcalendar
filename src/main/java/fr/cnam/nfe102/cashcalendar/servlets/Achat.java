@@ -21,7 +21,7 @@ import fr.cnam.nfe102.cashcalendar.modele.Produit;
  */
 @WebServlet( name="Achat", urlPatterns = {"/achat"}, initParams={
 		//@WebInitParam(name="chemin", value="/PHP/images/")
-	    //@WebInitParam(name="chemin", value="/user/sedira/cashcalendar/images/")
+	    @WebInitParam(name="chemin", value="/home/sedira/cashcalendar/images/")
 	})
 //@MultipartConfig(location="C:/PHP/images")
 @MultipartConfig(location="/home/sedira/cashcalendar/images")
