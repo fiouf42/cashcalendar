@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -13,18 +12,11 @@
     </head>
     <body>
     <%@ include file="menu.jsp" %>
-        <!-- <form method="post" action="connexion">-->
-            <!-- <fieldset>-->
-                <!-- <legend>Connexion</legend>-->
-                <!-- <p>Vous pouvez vous connecter via ce formulaire.</p>-->
-                
-                <!-- <div class="input-group">-->
-				  <!-- <span class="input-group-addon" id="basic-addon1">@</span> -->
-				  <!-- <input type="email" id="email" name="email"  class="form-control" placeholder="Username" aria-describedby="basic-addon1" value="<c:out value="${utilisateur.email}"/>">-->
-				<!-- </div> -->
-				
-				
-				
+    	<c:choose>
+	    <c:when test="${!empty sessionScope.sessionUtilisateur}">
+	    	<p>Vous êtes déjà connecté ! Déconnecté vous <a href="deconnexion">ici</a> !
+	    </c:when>
+		<c:otherwise>
 				<div class="container">
 			      <form class="form-signin" method="post" action="connexion">
 			        <h2 class="form-signin-heading">Connexion</h2>
@@ -46,9 +38,8 @@
 	                <p>Pas encore membre ? inscrivez vous <a href="inscription" >ici</a></p>
 			      </form>
 			    </div>
-			    
-            <!-- </fieldset> -->
-       <!--  </form>-->
+		</c:otherwise>
+		</c:choose>
         <%@ include file="piedDePage.jsp" %>
     </body>
 </html>

@@ -2,7 +2,6 @@ package fr.cnam.nfe102.cashcalendar.services;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
 import java.util.List;
 
 //import fr.cnam.nfe102.cashcalendar.dao.IUtilisateurDAO;
@@ -14,13 +13,11 @@ public class ServiceUtilisateur implements IServiceUtilisateur {
 	private UtilisateurDAO dao = new UtilisateurDAO();
 
 	@Override
-	public Utilisateur creerUtilisateur(String mail, String motDePasse, String nom, /*Date dateInscription,*/ double solde) {
+	public Utilisateur creerUtilisateur(String mail, String motDePasse, double solde) {
 		final Utilisateur utilisateur = new Utilisateur();
 		
 		utilisateur.setMail(mail);
 		utilisateur.setMotDePasse(encrypteMD5(motDePasse));
-		//utilisateur.setNom(nom);
-		//utilisateur.setDateInscription(dateInscription);
 		utilisateur.setSolde(solde);
 		
 		dao.creerUser(utilisateur);

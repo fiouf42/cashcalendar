@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -12,17 +12,16 @@
     </head>
     <body>
     <%@ include file="menu.jsp" %>
-    <br/><br/><br/>
 	<p class="succes">On va acheter : ${nom} du calendrier ${idCalendrier}</p>
 		<c:choose>
 		<c:when test="${nom == 'image'}">
 			
 				<div class="container">
-			      <form class="form-signin" action="<c:url value="/achat" />" method="post" enctype="multipart/form-data">
+			      <form class="form-signin" method="post" action="achat" enctype="multipart/form-data">
 			        <h2 class="form-signin-heading">Envoi de l'image</h2>
 			        
-			        <label for="fichier" class="sr-only">Adresse email</label>
-			        <input type="file" id="fichier" class="form-control" name="fichier">
+			        <label for="fichier" class="sr-only">Emplacement du fichier</label>
+			        <input type="file" id="fichier" class="form-control" name="fichier" value="<c:out value="${produit.nom}"/>" />
 			        <span class="erreur">${form.erreurs['fichier']}</span>
 			        
 			        <button class="btn btn-lg btn-primary btn-block" value="Valider" name="validAchat" type="submit">Valider</button>

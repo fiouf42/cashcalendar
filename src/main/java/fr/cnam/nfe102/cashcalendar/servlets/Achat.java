@@ -20,8 +20,10 @@ import fr.cnam.nfe102.cashcalendar.modele.Produit;
  * Servlet implementation class Achat
  */
 @WebServlet( name="Achat", urlPatterns = {"/achat"}, initParams={
-	    @WebInitParam(name="chemin", value="/user/sedira/cashcalendar/images/")
+		//@WebInitParam(name="chemin", value="/PHP/images/")
+	    //@WebInitParam(name="chemin", value="/user/sedira/cashcalendar/images/")
 	})
+//@MultipartConfig(location="C:/PHP/images")
 @MultipartConfig(location="/user/sedira/cashcalendar/images")
 public class Achat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -64,6 +66,8 @@ public class Achat extends HttpServlet {
         HttpSession session = request.getSession();
         
         CalendrierController form = null;
+        
+        boolean neRienFaire = false;
 		
         if ( request.getParameter(ATT_SESSION_ID) != null ) {
         	session.setAttribute( ATT_SESSION_ID, request.getParameter(ATT_SESSION_ID));
@@ -78,7 +82,18 @@ public class Achat extends HttpServlet {
          * dans le web.xml
          */
 		
-		if (request.getParameter("validAchat") != null) {
+		
+		//List list = Collections.list(request.getParameterNames());
+		//Iterator iterator = list.iterator();
+		//while (iterator.hasNext()) {
+		//	//System.out.println("objet = "+iterator.next());
+		//  System.out.println("objet = "+request.getParameter((String)iterator.next()));
+		//}
+		if (request.getParameter("bouton") != null && request.getParameter("bouton").equals("Acheter")) {
+			neRienFaire = true;
+		}
+		
+		if (!neRienFaire) {
 	        String chemin = this.getServletConfig().getInitParameter( CHEMIN );
 	        session.setAttribute(ATT_DICTON, request.getParameter("dicton"));
 	        /* Préparation de l'objet formulaire */

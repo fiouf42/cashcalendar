@@ -39,6 +39,7 @@ public class Image extends HttpServlet {
  
 			FileInputStream in = null;			
  
+			//String filePath = "C:\\PHP\\images\\"+nomImage /*+".jpg"*/;
 			String filePath = "/user/sedira/cashcalendar/images/"+nomImage /*+".jpg"*/;
  
  

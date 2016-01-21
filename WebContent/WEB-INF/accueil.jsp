@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -37,7 +36,7 @@
 										<option>image
 									</select>
 									<input type="hidden" id="idCalendrier" name="idCalendrier" value="${cal.idCalendrier}" />
-									<input title="un bouton" type="submit" name="bouton" value="Valider" />
+									<input title="un bouton" type="submit" name="bouton" value="Acheter" />
 								</form>
 							</c:when>
 							<c:otherwise>

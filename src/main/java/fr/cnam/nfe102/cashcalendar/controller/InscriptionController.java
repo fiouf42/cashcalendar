@@ -1,18 +1,11 @@
 package fr.cnam.nfe102.cashcalendar.controller;
 
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-//import org.hibernate.Session;
-
 import fr.cnam.nfe102.cashcalendar.modele.Utilisateur;
-//import fr.cnam.nfe102.cashcalendar.services.IServiceUtilisateur;
-//import fr.cnam.nfe102.cashcalendar.utils.HibernateUtil;
 import fr.cnam.nfe102.cashcalendar.services.ServiceUtilisateur;
 
 public final class InscriptionController {
@@ -22,7 +15,6 @@ public final class InscriptionController {
     private static final String CHAMP_EMAIL  = "mail";
     private static final String CHAMP_PASS   = "motdepasse";
     private static final String CHAMP_CONF   = "confirmation";
-    private static final String CHAMP_NOM    = "nom";
 
     private String              resultat;
     private Map<String, String> erreurs      = new HashMap<String, String>();
@@ -35,17 +27,15 @@ public final class InscriptionController {
         return erreurs;
     }
     
+    //Methode qui inscrit un utilisateur
     public Utilisateur inscrireUtilisateur( HttpServletRequest request ) {
         String mail = getValeurChamp( request, CHAMP_EMAIL );
         String motDePasse = getValeurChamp( request, CHAMP_PASS );
         String confirmation = getValeurChamp( request, CHAMP_CONF );
-        String nom = getValeurChamp( request, CHAMP_NOM );
         String message = null;
 
         Utilisateur utilisateur = null;
         serviceUtilisateur = new ServiceUtilisateur();
-        
-        //List<Utilisateur> listeUtilisateur = serviceUtilisateur.listeUtilisateur();
 
         try {
             validationEmail( mail );
@@ -56,8 +46,6 @@ public final class InscriptionController {
         if (message != null) {
         	setErreur( CHAMP_EMAIL, message );
         }
-        
-        //utilisateur.setEmail( mail );
 
         try {
             validationMotsDePasse( motDePasse, confirmation );
@@ -65,34 +53,9 @@ public final class InscriptionController {
             setErreur( CHAMP_PASS, e.getMessage() );
             setErreur( CHAMP_CONF, null );
         }
-        //utilisateur.setMotDePasse( motDePasse );
-
-        try {
-            validationNom( nom );
-        } catch ( Exception e ) {
-            setErreur( CHAMP_NOM, e.getMessage() );
-        }
-        //utilisateur.setNom( nom );
-        
-        //serviceUtilisateur.listeUtilisateur();
         
         if ( erreurs.isEmpty() ) {
-        	//try {
-        	//utilisateur.setDateInscription(new Date());
-            //utilisateur.setSolde(16.00);
-            	
-        	utilisateur = serviceUtilisateur.creerUtilisateur(mail, motDePasse, nom, /*new Date(),*/ 16.00);
-            	
-                //Session session = HibernateUtil.getSessionFactory().getCurrentSession();
-
-                //session.beginTransaction();
-                
-                //session.save(utilisateur);
-
-                //session.getTransaction().commit();
-        	//} catch (Exception e) {
-        		//resultat = "Échec de l'inscription.";
-        	//}
+        	utilisateur = serviceUtilisateur.creerUtilisateur(mail, motDePasse, 16.00);
     		resultat = "Succès de l'inscription.";
         } else {
     		resultat = "Échec de l'inscription.";
@@ -101,6 +64,7 @@ public final class InscriptionController {
         return utilisateur;
     }
     
+    //Methode qui verifie l'adresse mail de l'utilisateur
     private void validationEmail( String mail ) throws Exception {
         if ( mail != null ) {
             if ( !mail.matches( "([^.@]+)(\\.[^.@]+)*@([^.@]+\\.)+([^.@]+)" ) ) {
@@ -109,13 +73,9 @@ public final class InscriptionController {
         } else {
             throw new Exception( "Merci de saisir une adresse mail." );
         }
-        
-        //Iterator<Utilisateur> iterator = listeUtilisateur.iterator();
-        //while (iterator.hasNext()) {
-        //	Utilisateur utilisateur = iterator.next();
-        //}
     }
 
+    //Methode qui verifie le mot de passe de l'utilisateur
     private void validationMotsDePasse( String motDePasse, String confirmation ) throws Exception {
         if ( motDePasse != null && confirmation != null ) {
             if ( !motDePasse.equals( confirmation ) ) {
@@ -125,12 +85,6 @@ public final class InscriptionController {
             }
         } else {
             throw new Exception( "Merci de saisir et confirmer votre mot de passe." );
-        }
-    }
-
-    private void validationNom( String nom ) throws Exception {
-        if ( nom != null && nom.length() < 3 ) {
-            throw new Exception( "Le nom d'utilisateur doit contenir au moins 3 caractères." );
         }
     }
 
