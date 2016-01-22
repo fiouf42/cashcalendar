@@ -8,5 +8,5 @@ public interface IServiceUtilisateur {
 	List<Utilisateur> listeUtilisateur();
 	String verifMail (final String mail);
 	Utilisateur creerUtilisateur(final String mail, final String motDePasse, final double solde);
-	Utilisateur connectUser(String mail, String motDePasse);
+	Utilisateur connecterUtilisateur(String mail, String motDePasse);
 }

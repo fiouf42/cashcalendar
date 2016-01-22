@@ -12,7 +12,7 @@ public class ServiceCalendrier implements IServiceCalendrier {
 	private CalendrierDAO dao = new CalendrierDAO();
 	
 	@Override
-	public List<Calendrier> findAll() {
+	public List<Calendrier> listeCalendrier() {
 		List<Calendrier> listCalendrier = dao.findAll();
 		
 		return listCalendrier;

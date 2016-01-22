@@ -35,7 +35,7 @@ public class CalendrierController {
 	
 	public List<Calendrier> listCalendrier() {
 		serviceCalendrier = new ServiceCalendrier();
-        return serviceCalendrier.findAll();
+        return serviceCalendrier.listeCalendrier();
         
 	}
 

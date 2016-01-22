@@ -39,7 +39,7 @@ public class ServiceUtilisateur implements IServiceUtilisateur {
 	
     // Récupération de l'utilisateur correspondant au couple mail/motDePasse donné
 	@Override
-    public Utilisateur connectUser(String mail, String motDePasse) {
+    public Utilisateur connecterUtilisateur(String mail, String motDePasse) {
 		Utilisateur u = dao.connexionUser(mail, encrypteMD5(motDePasse));
           return u;
     }

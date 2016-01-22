@@ -52,7 +52,7 @@ public final class ConnexionController {
 
         /* Initialisation du résultat global de la validation. */
         if ( erreurs.isEmpty() ) {
-        	utilisateur = serviceUtilisateur.connectUser(email, motDePasse);
+        	utilisateur = serviceUtilisateur.connecterUtilisateur(email, motDePasse);
         	if (utilisateur != null) {
         		resultat = "Succès de la connexion.";
         	} else {

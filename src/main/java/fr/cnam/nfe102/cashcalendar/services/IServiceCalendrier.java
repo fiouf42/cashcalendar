@@ -7,6 +7,6 @@ import fr.cnam.nfe102.cashcalendar.modele.Produit;
 import fr.cnam.nfe102.cashcalendar.modele.Utilisateur;
 
 public interface IServiceCalendrier {
-	List<Calendrier> findAll();
+	List<Calendrier> listeCalendrier();
 	Produit passerCommande(final Utilisateur user, final int idCalendrier, final Produit produit);
 }
